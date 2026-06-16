@@ -1,6 +1,7 @@
 import { prisma } from '../../lib/prisma'
 import FoodForm from '../../components/FoodForm'
 import DeleteFoodButton from '../../components/DeleteFoodButton'
+import EditFoodButton from '../../components/EditFoodButton'
 
 export default async function FoodsPage() {
   const foods = await prisma.food.findMany()
@@ -25,6 +26,8 @@ export default async function FoodsPage() {
             <p className="text-sm text-gray-600">
               {food.carbs}g carbs • {food.calories} kcal
             </p>
+
+            <EditFoodButton food={food} />
           
             <DeleteFoodButton id={food.id} />
           </div>

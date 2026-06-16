@@ -29,3 +29,24 @@ export async function DELETE(request: Request) {
 
     return Response.json({ success: true })
 }
+
+export async function PUT(request: Request) {
+    const body = await request.json()
+
+    const food = await prisma.food.update({
+        where: {
+            id: body.id,
+        },
+        data: {
+            name: body.name,
+            carbs: Number(body.carbs),
+            calories: Number(body.calories),
+            protein: Number(body.protein),
+            fat: Number(body.fat),
+            servingSize: Number(body.servingSize),
+        },
+    })
+
+    return Response.json(food)
+}
+    
