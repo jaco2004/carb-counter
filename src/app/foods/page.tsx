@@ -1,5 +1,6 @@
 import { prisma } from '../../lib/prisma'
 import FoodForm from '../../components/FoodForm'
+import FoodCard from '../../components/FoodCard'
 import DeleteFoodButton from '../../components/DeleteFoodButton'
 import EditFoodButton from '../../components/EditFoodButton'
 
@@ -20,17 +21,10 @@ export default async function FoodsPage() {
 
       <div className="mt-6 space-y-3">
         {foods.map((food) => (
-          <div key={food.id} className="border p-4 rounded">
-            <p className="font-semibold">{food.name}</p>
-          
-            <p className="text-sm text-gray-600">
-              {food.carbs}g carbs • {food.calories} kcal
-            </p>
-
-            <EditFoodButton food={food} />
-          
-            <DeleteFoodButton id={food.id} />
-          </div>
+          <FoodCard
+            key={food.id}
+            food={food}
+          />
         ))}
       </div>
     </main>
