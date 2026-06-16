@@ -17,3 +17,15 @@ export async function POST(request: Request) {
 
     return NextResponse.json(food)
 }
+
+export async function DELETE(request: Request) {
+    const { id } = await request.json()
+
+    await prisma.food.delete({
+        where: {
+            id,
+        },
+    })
+
+    return Response.json({ success: true })
+}
