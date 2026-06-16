@@ -15,4 +15,7 @@ model Food {
   protein     Float
   fat         Float
   calories    Float
+  
+  nutritionBasis String @default("100g")
+  unit String @default("g")
 }

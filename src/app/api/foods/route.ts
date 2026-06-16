@@ -12,6 +12,8 @@ export async function POST(request: Request) {
             calories: Number(body.calories),
             protein: Number(body.protein),
             fat: Number(body.fat),
+            nutritionBasis: body.nutritionBasis,
+            unit: body.unit,
         },
     })
 
@@ -44,6 +46,8 @@ export async function PUT(request: Request) {
             protein: Number(body.protein),
             fat: Number(body.fat),
             servingSize: Number(body.servingSize),
+            nutritionBasis: body.nutritionBasis,
+            unit: body.unit,
         },
     })
 

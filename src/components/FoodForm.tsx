@@ -9,6 +9,8 @@ export default function FoodForm() {
     const [protein, setProtein] = useState('')
     const [fat, setFat] = useState('')
     const [servingSize, setServingSize] = useState('')
+    const [nutritionBasis, setNutritionbasis] = useState('100g')
+    const [unit, setUnit] = useState('g')
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault()
@@ -25,6 +27,8 @@ export default function FoodForm() {
                 protein,
                 fat,
                 servingSize,
+                nutritionBasis,
+                unit,
             }),
         })
 
@@ -81,6 +85,25 @@ export default function FoodForm() {
                 onChange={(e) => setFat(e.target.value)}
                 className='border p-2 w-full'
             />
+
+            <select
+                value={nutritionBasis}
+                onChange={(e) => setNutritionbasis(e.target.value)}
+                className='border p-2 w-full'
+            >
+                <option value="100g">Per 100g</option>
+                <option value="serving">Per Serving</option>
+            </select>
+
+            <select
+                value={unit}
+                onChange={(e) => setUnit(e.target.value)}
+                className='border p-2 w-full'
+            >
+                <option value="g">Grams (g)</option>
+                <option value="ml">Millilitres (ml)</option>
+                <option value="piece">Piece</option>
+            </select>
 
             <button
                 type="submit"

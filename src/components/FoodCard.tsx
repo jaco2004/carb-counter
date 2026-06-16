@@ -23,9 +23,21 @@ export default function FoodCard({
                     {food.carbs}g carbs • {food.calories} kcal
                 </p>
             </button>
+
+
+
             {expanded && (
                 <div className='mt-4 space-y-2'>
-                    <p>Serving Size: {food.servingSize}g</p>
+                    <p>
+                        Nutrition Basis:{' '}
+                        {food.nutritionBasis === '100g'
+                            ? 'Per 100g'
+                            : 'Per Serving'
+                        }
+                    </p>
+                    <p>
+                        Serving Size: {food.servingSize} {food.unit}
+                    </p>
                     <p>Calories: {food.calories}</p>
                     <p>Protein: {food.protein}</p>
                     <p>Carbs: {food.carbs}</p>
